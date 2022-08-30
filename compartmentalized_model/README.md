@@ -1,12 +1,21 @@
 # Julia Experiment
 
+## TODOS
+- Ensure one step ensures one day.
+- Pass in model parameters and populations using JSONs.
+- Document more important info about the Julia language.
+- Append a date column to each entry.
+- See if a GUI could work.
+
 ## The Model
 
 [The paper](https://www.sciencedirect.com/science/article/pii/S0960077921000424)
 being used.
 
-The model maintains the same total population (within an epsilon of 1), so
-the model at least works somewhat.
+The model maintains the same total population (within an epsilon of 1). The
+error of one person per cell is due to the display showing the floored integer
+version (so the 'error' is in the printing of the cell itself and should not
+carry over).
 
 ### Installing
 Run `./build.jl OUTPUT_DIR` to build the project. To then execute, run

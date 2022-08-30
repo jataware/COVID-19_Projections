@@ -52,3 +52,8 @@ to learn this stuff.
 [The paper](https://www.sciencedirect.com/science/article/pii/S0960077921000424)
 being used.
 
+
+### Notes on my implementation
+- The way I'm referencing the parameters and compartments is flimsy
+  because it relies on the positional arguments
+

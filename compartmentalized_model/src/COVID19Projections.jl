@@ -1,5 +1,6 @@
 module COVID19Projections
 
+using Printf: @printf
 using DynamicalSystems: ContinuousDynamicalSystem, SVector
 
 include("./input.jl")
@@ -42,6 +43,12 @@ function julia_main()::Cint
     Input.state,
     Input.parameters
   )
+  @printf """
+   The Nabi-Kumar-Erturk System has been loaded:
+
+   %s
+
+   """ system
   return 0
 end
 

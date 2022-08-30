@@ -49,14 +49,21 @@ function julia_main()::Cint
     Input.parameters
   )
 
-  results = coerce_int(trajectory(system, 365, Δt = 1))
+  results = coerce_int(trajectory(system, 364, Δt = 1))
   @printf """
    The Nabi-Kumar-Erturk System has been loaded:
 
    %s
 
    """ system 
-   writedlm("output.txt", results, ',')
+   open("output.csv", "w") do io
+      writedlm(io,
+      [ ["susceptible";] ["early-exposed";] ["pre-symptomatic";] ["symptomatically-infectious";] ["asymptomatically-infectious";] ["quarantined";] ["isolated";] ["recovered";] ["death"] ]
+      , ',')
+   end
+   open("output.csv", "a") do io
+      writedlm(io, results, ',')
+   end
   return 0
 end
 

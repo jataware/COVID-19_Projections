@@ -52,8 +52,14 @@ to learn this stuff.
 [The paper](https://www.sciencedirect.com/science/article/pii/S0960077921000424)
 being used.
 
+The model maintains the same total population (within an epsilon of 1), so
+the model at least works somewhat.
+
 
 ### Notes on my implementation
 - The way I'm referencing the parameters and compartments is flimsy
   because it relies on the positional arguments
+- Each entry in the CSV might have an error 
 
+### Misc.
+- [Debug Equations Help](https://discourse.julialang.org/t/psa-how-to-help-yourself-debug-differential-equation-solving-issues/62489)

@@ -3,15 +3,15 @@ module Input
 using DynamicalSystems: SVector
 
 const state = SVector(NTuple((;
-  susceptible = 990000000,
-  exposed = 18000000,
-  presymptomatic = 4000000,
-  symptomatic_infected = 10448134,
-  asymptomatic_infected = 2000000,
-  quarantined = 1000000,
-  isolated = 1000000,
-  recovered = 9000000,
-  death = 151000,
+  susceptible = 990000000.0,
+  exposed = 18000000.0,
+  presymptomatic = 4000000.0,
+  symptomatic_infected = 10448134.0,
+  asymptomatic_infected = 2000000.0,
+  quarantined = 1000000.0,
+  isolated = 1000000.0,
+  recovered = 9000000.0,
+  death = 151000.0,
 )))
 
 const total_population = sum(state);

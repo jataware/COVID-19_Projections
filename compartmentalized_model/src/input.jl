@@ -3,6 +3,7 @@ module Input
 using DynamicalSystems: SVector
 
 const state = SVector(NTuple((;
+  # Integration does not ensure that these values will remain integers. 
   susceptible = 990000000.0,
   exposed = 18000000.0,
   presymptomatic = 4000000.0,

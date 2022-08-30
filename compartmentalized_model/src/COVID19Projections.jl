@@ -2,9 +2,14 @@ module COVID19Projections
 
 using Printf: @printf
 using DelimitedFiles: writedlm
-using DynamicalSystems: ContinuousDynamicalSystem, SVector, trajectory
+using DynamicalSystems: ContinuousDynamicalSystem, Dataset, SVector, trajectory
 
 include("./input.jl")
+
+coerce_int = (dataset) -> Dataset(
+  [map(x->Int64(floor(x)),row) for row in eachrow(dataset)]
+)
+
 
 @inline @inbounds function nabi_kumar_erturk(state, p, t)
   ( S, E₁, E₂, I, A, Q, L, R, D ) = state
@@ -43,13 +48,15 @@ function julia_main()::Cint
     Input.state,
     Input.parameters
   )
+
+  results = coerce_int(trajectory(system, 4))
   @printf """
    The Nabi-Kumar-Erturk System has been loaded:
 
    %s
 
    """ system 
-   writedlm("output.txt", trajectory(system, 20.1), ',')
+   writedlm("output.txt", results, ',')
   return 0
 end
 

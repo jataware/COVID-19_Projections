@@ -1,0 +1,9 @@
+name = "COVID19Projections"
+uuid = "d6aba0a4-868c-418c-af0f-63e93df32dca"
+authors = ["Five Grant <5@fivegrant.com>"]
+version = "0.1.0"
+
+[deps]
+DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
+DynamicalSystems = "61744808-ddfa-5f27-97ff-6e42cc95d634"
+PackageCompiler = "9b87118b-4619-50d2-8e1e-99f35a4d4d9d"

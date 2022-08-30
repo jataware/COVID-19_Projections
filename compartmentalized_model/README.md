@@ -1,6 +1,29 @@
 # Julia Experiment
 
-## Learning the language
+## The Model
+
+[The paper](https://www.sciencedirect.com/science/article/pii/S0960077921000424)
+being used.
+
+The model maintains the same total population (within an epsilon of 1), so
+the model at least works somewhat.
+
+### Installing
+Run `./build.jl OUTPUT_DIR` to build the project. To then execute, run
+`OUTPUT_DIR/bin/COVID19Projections`. Note that compilation takes
+about ten minutes. If that's too slow for you, you can load the project
+directly into the REPL and run `julia_main` from `COVID19Projections`.
+
+### Notes on my implementation
+- The way I'm referencing the parameters and compartments is flimsy
+  because it relies on the positional arguments
+- Each entry in the CSV might have an error 
+
+### Misc.
+- [Debug Equations Help](https://discourse.julialang.org/t/psa-how-to-help-yourself-debug-differential-equation-solving-issues/62489)
+
+
+## Learning the Julia language
 The first thing I like to do when learning a new programming language is visit
 [Learn X in Y Minutes](https://learnxinyminutes.com/docs/julia/). The link
 describes Julia as
@@ -47,19 +70,4 @@ to learn this stuff.
 - Use the Julia package manager by pressing `]` when in the repl
 - [How to init a project](https://towardsdatascience.com/how-to-setup-project-environments-in-julia-ec8ae73afe9c)
 
-## The Model
 
-[The paper](https://www.sciencedirect.com/science/article/pii/S0960077921000424)
-being used.
-
-The model maintains the same total population (within an epsilon of 1), so
-the model at least works somewhat.
-
-
-### Notes on my implementation
-- The way I'm referencing the parameters and compartments is flimsy
-  because it relies on the positional arguments
-- Each entry in the CSV might have an error 
-
-### Misc.
-- [Debug Equations Help](https://discourse.julialang.org/t/psa-how-to-help-yourself-debug-differential-equation-solving-issues/62489)

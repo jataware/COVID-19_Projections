@@ -3,30 +3,32 @@
 ## TODOS
 - Ensure one step ensures one day.
 - Pass in model parameters and populations using JSONs.
+- See if `InteractiveDynamics` could work.
 - Document more important info about the Julia language.
-- Append a date column to each entry.
-- See if a GUI could work.
+- Append a date column to each entry. **(WE COULD REGISTER THIS IN DOJO)** If
+  a start date is given, we could iterate through days for each entry. Additionally,
+  if country name is passed in, we could also append that. Then, each compartment
+  could work as a Dojo feature
 
 ## The Model
 
 [The paper](https://www.sciencedirect.com/science/article/pii/S0960077921000424)
 being used.
 
-The model maintains the same total population (within an epsilon of 1). The
-error of one person per cell is due to the display showing the floored integer
-version (so the 'error' is in the printing of the cell itself and should not
-carry over).
-
 ### Installing
 Run `./build.jl OUTPUT_DIR` to build the project. To then execute, run
 `OUTPUT_DIR/bin/COVID19Projections`. Note that compilation takes
-about ten minutes. If that's too slow for you, you can load the project
+about ten minutes (this was before adding `InteractiveDynamics`).
+If that's too slow for you, you can load the project
 directly into the REPL and run `julia_main` from `COVID19Projections`.
 
 ### Notes on my implementation
-- The way I'm referencing the parameters and compartments is flimsy
-  because it relies on the positional arguments
-- Each entry in the CSV might have an error 
+- **The way I'm referencing the parameters and compartments is flimsy**
+  **because it relies on the positional arguments**
+- The model maintains the same total population (within an epsilon of 1). The
+  error of one person per cell is due to the display showing the floored integer
+  version (so the 'error' is in the printing of the cell itself and should not
+  carry over).
 
 ### Misc.
 - [Debug Equations Help](https://discourse.julialang.org/t/psa-how-to-help-yourself-debug-differential-equation-solving-issues/62489)

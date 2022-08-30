@@ -7,13 +7,13 @@ end
 
 println("Starting installation")
 import Pkg
-Pkg.activate(".")
+Pkg.activate(dirname(PROGRAM_FILE))
 Pkg.instantiate()
 
 println("Building model")
 println("(warning: this may take a few minutes)")
 import PackageCompiler
-PackageCompiler.create_app(".",ARGS[1])
+PackageCompiler.create_app(dirname(PROGRAM_FILE),ARGS[1])
 
 println("Model finished:")
 println("Run by using `$(ARGS[1])/bin/COVID19Projections`")

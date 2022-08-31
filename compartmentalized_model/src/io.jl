@@ -1,16 +1,20 @@
 module External
 
 using ArgParse: @add_arg_table!, ArgParseSettings, parse_args
-using DelimitedFiles: writedlm
+using Dates: Date, Day, today
 using JSON: parse as parse_json 
 
-function save_compartmental_output(output_file, results)
-   headers = ["susceptible", "early-exposed", "pre-symptomatic", 
-               "symptomatically-infectious", "asymptomatically-infectious", 
-               "quarantined", "isolated", "recovered", "death" 
-             ]
-   data_output = vcat(permutedims(headers), results)
-   writedlm(output_file, data_output, ',')
+function add_date_column(data_output, start_date, days)
+   date_column = vcat(["date"], [Date(start_date) + Day(i - 1) for i in 1:days])
+   return hcat(date_column, data_output)
+end
+
+function apply_standard_headers(results)
+  headers = ["susceptible", "early-exposed", "pre-symptomatic", 
+             "symptomatically-infectious", "asymptomatically-infectious", 
+             "quarantined", "isolated", "recovered", "death" 
+            ]
+  return vcat(permutedims(headers), results)
 end
 
 function get_args()
@@ -20,12 +24,19 @@ function get_args()
     "--compartments", "-c"
       help = "Path to JSON containing compartment breakdown"
       default = "./configs/population.json"
-    "--parameters", "-p"
-      help = "Path to JSON containing parameters"
-      default = "./configs/params.json"
+    "--days", "-d"
+      help = "The amount of days to run the model for"
+      arg_type = Int
+      default = 365
     "--output", "-o"
       help = "The filehandle to save output"
       default = "./output.csv"
+    "--parameters", "-p"
+      help = "Path to JSON containing parameters"
+      default = "./configs/params.json"
+    "--startdate", "-s"
+      help = "The start date for the model"
+      default = string(today())
   end
 
   args = parse_args(settings)
@@ -38,6 +49,8 @@ function get_args()
     state = open(parse_json, args["compartments"]),
     params = open(parse_json, args["parameters"]),
     output_file = args["output"],
+    days = args["days"],
+    start_date = args["startdate"]
   )
 
 end

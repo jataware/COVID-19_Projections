@@ -2,13 +2,10 @@
 
 ## TODOS
 - ~~Ensure one step ensures one day.~~ **The parameters are adjusted for about one step being one day.**
-- Pass in model parameters and populations using JSONs.
+- ~~Pass in model parameters and populations using JSONs.~~ **DONE**
 - See if `InteractiveDynamics` could work.
 - Document more important info about the Julia language.
-- Append a date column to each entry. **(WE COULD REGISTER THIS IN DOJO)** If
-  a start date is given, we could iterate through days for each entry. Additionally,
-  if country name is passed in, we could also append that. Then, each compartment
-  could work as a Dojo feature
+- ~~Append a date column to each entry.~~ **DONE**
 
 ## The Model
 

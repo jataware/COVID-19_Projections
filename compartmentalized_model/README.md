@@ -1,7 +1,7 @@
 # Julia Experiment
 
 ## TODOS
-- Ensure one step ensures one day.
+- ~~Ensure one step ensures one day.~~ **The parameters are adjusted for about one step being one day.**
 - Pass in model parameters and populations using JSONs.
 - See if `InteractiveDynamics` could work.
 - Document more important info about the Julia language.

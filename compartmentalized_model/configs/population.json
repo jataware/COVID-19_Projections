@@ -1,0 +1,11 @@
+{
+  "susceptible": 990000000,
+  "exposed":  18000000,
+  "presymptomatic": 4000000,
+  "symptomatic_infected" : 10448134,
+  "asymptomatic_infected" : 2000000,
+  "quarantined" : 1000000,
+  "isolated" : 1000000,
+  "recovered" : 9000000,
+  "death" : 151000
+}

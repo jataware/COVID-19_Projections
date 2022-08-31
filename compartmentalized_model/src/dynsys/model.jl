@@ -1,7 +1,7 @@
 module DynamicalSystemsModel
 
 using Printf: @printf
-using DynamicalSystems: ContinuousDynamicalSystem, Dataset, SVector, trajectory
+using DynamicalSystems: ContinuousDynamicalSystem, SVector, trajectory
 
 include("./configure.jl")
 

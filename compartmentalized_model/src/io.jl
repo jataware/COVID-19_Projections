@@ -5,14 +5,12 @@ using DelimitedFiles: writedlm
 using JSON: parse as parse_json 
 
 function save_compartmental_output(output_file, results)
-   open(output_file, "w") do io
-      writedlm(io,
-      [ ["susceptible";] ["early-exposed";] ["pre-symptomatic";] ["symptomatically-infectious";] ["asymptomatically-infectious";] ["quarantined";] ["isolated";] ["recovered";] ["death"] ]
-      , ',')
-   end
-   open(output_file, "a") do io
-      writedlm(io, results, ',')
-   end
+   headers = ["susceptible", "early-exposed", "pre-symptomatic", 
+               "symptomatically-infectious", "asymptomatically-infectious", 
+               "quarantined", "isolated", "recovered", "death" 
+             ]
+   data_output = vcat(permutedims(headers), results)
+   writedlm(output_file, data_output, ',')
 end
 
 function get_args()

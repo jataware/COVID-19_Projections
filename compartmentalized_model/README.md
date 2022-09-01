@@ -15,7 +15,7 @@ being used.
 ### Installing
 Run `./build.jl OUTPUT_DIR` to build the project. To then execute, run
 `OUTPUT_DIR/bin/COVID19Projections`. Note that compilation takes
-about ten minutes (this was before adding `InteractiveDynamics`).
+about ten minutes.
 If that's too slow for you, you can load the project
 directly into the REPL and run `julia_main` from `COVID19Projections`.
 

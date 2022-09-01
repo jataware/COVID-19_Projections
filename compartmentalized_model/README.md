@@ -3,7 +3,7 @@
 ## TODOS
 - ~~Ensure one step ensures one day.~~ **The parameters are adjusted for about one step being one day.**
 - ~~Pass in model parameters and populations using JSONs.~~ **DONE**
-- See if `InteractiveDynamics` could work.
+- ~~See if InteractiveDynamics could work.~~ This is unnecessary and adds build time + complexity
 - Document more important info about the Julia language.
 - ~~Append a date column to each entry.~~ **DONE**
 

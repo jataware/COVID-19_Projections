@@ -23,6 +23,9 @@ docs/site/
 # environment.
 Manifest.toml
 
+# Notebook-related
+.ipynb_checkpoints
+
 # Project outputs
 outputs
 demo_env
